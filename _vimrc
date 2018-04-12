@@ -382,6 +382,7 @@ nnoremap e :call search('\w\>', 'W')<cr>
 
 nmap fj :set filetype=javascript<cr>
 nmap fh :set filetype=html<cr>
+nmap fh :set filetype=html<cr>
 
 
 
