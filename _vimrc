@@ -1,4 +1,3 @@
-
 syntax on
 syntax enable
 syntax on
@@ -21,6 +20,7 @@ nnoremap tm :tabmove
 "set ignorecase
 set nowrap
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set scrolloff=111110
 set sidescroll=1
@@ -79,10 +79,10 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_mode_map = {"mode" :"passive"}
 let g:syntastic_vhdl_checkers=['gcc', 'clang_check']
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -267,7 +267,7 @@ set autoread
 
 function! GoPreviousTab()
 		let g:flag = 1
-		execute "tabn ".g:lasttab2[g:i12]
+		execute "tabn ".g:lasttab2[g:i12]gigfa_21906905
 		let g:i12 = g:i12 - 1
 		if g:i12 == -1
 			let g:i12 = 0
@@ -306,7 +306,6 @@ let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd = 'CtrlPMRU'
 
 let g:ctrlp_by_filename=0
-au BufWrite * call BufWriteF()
 function! BufWriteF()
 	let g:LAST_INSERT_FILE = expand('%:p')
 	let g:CURSOR_POS = getpos('.')
@@ -366,7 +365,6 @@ autocmd FileType html vnoremap <buffer> <leader>/ o<esc>^i<!--<esc>gvo<esc>$a-->
 
 let c=  system('date /t')
 let c=  system('python test.py')
-nmap p p==
 
 
 
@@ -382,11 +380,18 @@ nnoremap e :call search('\w\>', 'W')<cr>
 
 nmap fj :set filetype=javascript<cr>
 nmap fh :set filetype=html<cr>
-nmap fh :set filetype=html<cr>
 
+let g:prettier#exec_cmd_path = "D:/software/Vim/Vim/vimfiles/bundle/vim-prettier-master"
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslint'
 
+set expandtab
+let g:prettier#autoformat = 0
+let g:prettier#quickfix_enabled = 0
+let g:prettier#config#tab_width = 4
+let g:prettier#config#use_tabs = 'true'
 
-
-
+nmap <leader>p :Prettier<Cr>
+set encoding=utf-8
 
 
